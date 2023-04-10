@@ -13,6 +13,8 @@ public class SQL {
             connTest = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
             Statement stmt = connTest.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM [dbo].[Title]");
+            //TODO
+            //ResultSet rs = stmt.executeQuery("SELECT * FROM [dbo].[Title] WHERE primatetitle LIKE (input(eks. ))");
             // test to print out what i have retrieve
             while (rs.next()){
                 // i have trim the first column because it is nchar  and it has a fixed-length which annoys me then prints my test
@@ -41,7 +43,7 @@ public class SQL {
         Connection connTest;
         ArrayList<Title_basics> Data = new ArrayList<>();
         try {
-            connTest = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=<username>;password=<password>;encrypt=true;trustServerCertificate=true");
+            connTest = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
             Statement stmt = connTest.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM [dbo].[Title]");
             // test to print out what i have retrieve

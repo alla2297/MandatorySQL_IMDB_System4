@@ -1,7 +1,7 @@
 package com.example.mandatorysql_imdb_system4;
 
-import com.example.mandatorysql_imdb_system4.Object.Title_basics;
 
+import com.example.mandatorysql_imdb_system4.Object.Title_basics;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -7,4 +7,6 @@ module com.example.mandatorysql_imdb_system4 {
 
     opens com.example.mandatorysql_imdb_system4 to javafx.fxml;
     exports com.example.mandatorysql_imdb_system4;
+    exports com.example.mandatorysql_imdb_system4.Object;
+    opens com.example.mandatorysql_imdb_system4.Object to javafx.fxml;
 }
