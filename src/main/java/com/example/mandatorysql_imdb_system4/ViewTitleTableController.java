@@ -14,7 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import simonstentoft_alla2297.mandatorysql_imdb_system.Object.Title_basics;
+import com.example.mandatorysql_imdb_system4.Object.Title_basics;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,8 +1,8 @@
 package com.example.mandatorysql_imdb_system4;
 
-import simonstentoft_alla2297.mandatorysql_imdb_system.Object.Title_basics;
-import simonstentoft_alla2297.mandatorysql_imdb_system.Object.name_basics;
-import simonstentoft_alla2297.mandatorysql_imdb_system.Object.title_crew;
+import com.example.mandatorysql_imdb_system4.Object.Title_basics;
+import com.example.mandatorysql_imdb_system4.Object.name_basics;
+import com.example.mandatorysql_imdb_system4.Object.title_crew;
 
 import java.io.File;
 import java.util.ArrayList;
