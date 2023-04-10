@@ -2,6 +2,8 @@ package com.example.mandatorysql_imdb_system4;
 
 
 import com.example.mandatorysql_imdb_system4.Object.Title_basics;
+import com.example.mandatorysql_imdb_system4.Object.name_basics;
+import com.example.mandatorysql_imdb_system4.Object.title_crew;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,7 +36,6 @@ public class PreparedInsert {
                 String value5 = Data.get(j).getStartYear();
                 String value6 = Data.get(j).getEndYear();
                 String value7 = Data.get(j).getRuntimeMinutes();
-
 
                 stmt.setString(1, value1);
                 stmt.setString(2, value2);
@@ -192,6 +193,84 @@ public class PreparedInsert {
                         stmt.executeUpdate();
                     }
                 }
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    // dhifdkfjodfmdfmdpfmpdd
+    static void PreparedInsertNameKnownForTitles(ArrayList<name_basics> Data) {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
+
+            String insertSQL = "INSERT INTO [dbo].[NameKnownForTitles] (FK_nconst, knownForTitles) VALUES (?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+            for (int j = 0; j < Data.size(); j++) {
+                String value1 = Data.get(j).getNconst();
+                String[] value2 = Data.get(j).getKnownForTitles();
+
+                for (String knownForTitles : value2) {
+                    stmt.setString(1, value1);
+                    stmt.setString(2, knownForTitles);
+                    stmt.executeUpdate();
+                }
+            }
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void PreparedInsertCrewWriters(ArrayList<title_crew> Data) {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
+
+            String insertSQL = "INSERT INTO [dbo].[CrewWriters] (FK_tconst, writers) VALUES (?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+            for (int j = 0; j < Data.size(); j++) {
+                String value1 = Data.get(j).getTconst();
+                String[] value2 = Data.get(j).getWriters();
+
+                for (String writers : value2) {
+                    stmt.setString(1, value1);
+                    stmt.setString(2, writers);
+                    stmt.executeUpdate();
+                }
+            }
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void PreparedInsertCrewDirectors(ArrayList<title_crew> Data) {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
+
+            String insertSQL = "INSERT INTO [dbo].[CrewDirectors] (FK_tconst, directors) VALUES (?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+            for (int j = 0; j < Data.size(); j++) {
+                String value1 = Data.get(j).getTconst();
+                String[] value2 = Data.get(j).getDirectors();
+
+                for (String directors : value2) {
+                    stmt.setString(1, value1);
+                    stmt.setString(2, directors);
+                    stmt.executeUpdate();
+                }
+            }
 
             stmt.close();
 
