@@ -124,7 +124,7 @@ public class PreparedInsert {
             searchstmt.setString(1, a);
             ResultSet rs = searchstmt.executeQuery();
             if (rs.next()) {
-                x = Integer.toString(rs.getInt("FK_titleID"));
+                x = Integer.toString(rs.getInt("titleID"));
 
             }
         } catch (SQLException e) {
