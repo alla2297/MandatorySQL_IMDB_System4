@@ -47,11 +47,13 @@ public class test  {
         //SQL.SQLConnectionTest();
 
         //PreparedInsert.PreparedInsertTitles(DataTitle);
-        PreparedInsert.PreparedInsertName(DataName);
+        //PreparedInsert.PreparedInsertName(DataName);
         //PreparedInsert.PreparedInsertNamePrimaryProfession(DataName);
         //PreparedInsert.PreparedInsertNameKnownForTitles(DataName);
         PreparedInsert.PreparedInsertCrewDirectors(DataCrew);
-        PreparedInsert.PreparedInsertCrewWriters(DataCrew);
+        //PreparedInsert.PreparedInsertCrewWriters(DataCrew);
+
+        searchSQL.searchTitle("Carmen");
         long EndSQL = System.currentTimeMillis();
 
         System.out.println((EndSQL-StartSQL) + " Miliseconds");

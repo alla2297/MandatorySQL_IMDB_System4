@@ -118,7 +118,7 @@ public class PreparedInsert {
     private static String searchTitleType(String a, Connection conn) {
         //System.out.println("searchTitleType for " + a);
         String x = null;
-        String SearchTitleType = "SELECT [FK_titleID] FROM [MandatoryAssDB].[dbo].[TitleTypes] WHERE [titleType] = ?";
+        String SearchTitleType = "SELECT [titleID] FROM [MandatoryAssDB].[dbo].[TitleTypes] WHERE [titleType] = ?";
         try {
             PreparedStatement searchstmt = conn.prepareStatement(SearchTitleType);
             searchstmt.setString(1, a);
