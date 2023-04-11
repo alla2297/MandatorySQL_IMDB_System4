@@ -11,7 +11,7 @@ public class searchSQL {
         Connection conn;
 
         try {
-            System.out.println("searchTitle");
+            System.out.println("searchTitle =" + a);
             // Connect to the database
             conn = DriverManager.getConnection(
                     "jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");

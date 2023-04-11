@@ -50,7 +50,7 @@ public class test  {
         //PreparedInsert.PreparedInsertName(DataName);
         //PreparedInsert.PreparedInsertNamePrimaryProfession(DataName);
         //PreparedInsert.PreparedInsertNameKnownForTitles(DataName);
-        PreparedInsert.PreparedInsertCrewDirectors(DataCrew);
+        //PreparedInsert.PreparedInsertCrewDirectors(DataCrew);
         //PreparedInsert.PreparedInsertCrewWriters(DataCrew);
 
         searchSQL.searchTitle("Carmen");
