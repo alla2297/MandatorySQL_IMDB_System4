@@ -89,7 +89,6 @@ public class PreparedInsert {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     private static String searchGenre(String a, Connection conn) {// ARRAY
@@ -136,7 +135,7 @@ public class PreparedInsert {
     }
 
 
-    static void PreparedInsertName(ArrayList<name_basics> Data) {
+    static void PreparedInsertName(ArrayList<name_basics> Data) { //Insert name.basics dataset // ARRAY
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -176,7 +175,7 @@ public class PreparedInsert {
         }
     }
 
-    static void PreparedInsertNamePrimaryProfession(ArrayList<name_basics> Data) {
+    static void PreparedInsertNamePrimaryProfession(ArrayList<name_basics> Data) { //Insert name.basics primaryProfession
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -201,8 +200,8 @@ public class PreparedInsert {
             e.printStackTrace();
         }
     }
-    // dhifdkfjodfmdfmdpfmpdd
-    static void PreparedInsertNameKnownForTitles(ArrayList<name_basics> Data) {
+
+    static void PreparedInsertNameKnownForTitles(ArrayList<name_basics> Data) { //Insert name.basics KnownForTitles
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -272,6 +271,137 @@ public class PreparedInsert {
                     stmt.executeUpdate();
                 }
             }
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+//_------------------------------------add one movie----------------------------------
+    static void PreparedInsertInputTitles(Title_basics Data) {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
+
+            String insertSQL = "INSERT INTO [dbo].[Title] (tconst, primaryTitle, originalTitle, isAdult, startYear, endYear, runTimeMinutes,FK_titleTypeID) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+                String value1 = Data.getTconst();
+
+                int value8 = Integer.parseInt(searchTitleType(Data.getTitleType(), conn));
+
+                String value2 = Data.getPrimaryTitle();
+                String value3 = Data.getOriginalTitle();
+                boolean value4 = Data.getIsAdult();
+                String value5 = Data.getStartYear();
+                String value6 = Data.getEndYear();
+                String value7 = Data.getRuntimeMinutes();
+
+                stmt.setString(1, value1);
+                stmt.setString(2, value2);
+                stmt.setString(3, value3);
+                stmt.setBoolean(4, value4);
+
+
+                if (value5 == null || value5.equals("\\N")) {
+                    stmt.setNull(5, Types.INTEGER);
+                } else {
+                    stmt.setString(5, value5);
+                }
+
+                if (value6 == null || value6.equals("\\N")) {
+                    stmt.setNull(6, Types.INTEGER);
+                } else {
+                    stmt.setString(6, value6);
+                }
+
+                if (value7 == null || value7.equals("\\N")) {
+                    stmt.setNull(7, Types.INTEGER);
+                } else {
+                    stmt.setString(7, value7);
+                }
+                stmt.setInt(8, value8);
+
+                stmt.executeUpdate();
+
+
+            stmt.close();
+//__________________      TitleGenre ---------------------------------------------------------------
+            insertSQL ="INSERT INTO [dbo].[TitleGenre]([FK_titleID],[FK_genreID])VALUES(?,?)";
+            PreparedStatement stmtTitleGenre = conn.prepareStatement(insertSQL);
+
+                String[] genre = Data.getGenres().split(",");
+
+
+                //String value1 =Data.getTconst();
+                for (int i = 0; i <genre.length ; i++) {
+                    int value2ToInt = Integer.parseInt(searchGenre(genre[i], conn));
+
+                    stmtTitleGenre.setString(1, value1);
+                    stmtTitleGenre.setInt(2, value2ToInt);
+
+                    stmtTitleGenre.executeUpdate();
+                }
+
+
+
+            stmtTitleGenre.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+//--------------------------------add Name-----------------------------
+    static void PreparedInsertInputName(name_basics Data) { //Insert name.basics dataset // ARRAY
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
+
+            String insertSQL = "" +
+                    "BEGIN TRANSACTION\n" +
+                    "                   INSERT INTO [dbo].[Name]([nconst],[primaryName],[birthYear],[deathYear]) VALUES (?, ?, ?, ?); \n" +
+                    "                   INSERT INTO [MandatoryAssDB].[dbo].[NamePrimaryProfession] ([FK_nconst],[primaryProfession]) VALUES (?, ?);\n" +
+                    "                   INSERT INTO [MandatoryAssDB].[dbo].[NameKnownForTitles] ([FK_nconst],[knownForTitles]) VALUES (?, ?);\n" +
+                    "                   COMMIT TRANSACTION;";
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+
+                String value1 = Data.getNconst();
+                String value2 = Data.getPrimaryName();
+                String value3 = Data.getBirthYear();
+                String value4 = Data.getDeathYear();
+                String[] value5= Data.getPrimaryProfession();
+                String[] value6 = Data.getKnownForTitles();
+
+                stmt.setString(1, value1);
+                stmt.setString(2, value2);
+
+                if (value3 == null || value3.equals("\\N")) {
+                    stmt.setNull(3, Types.INTEGER);
+                } else {
+                    stmt.setString(3, value3);
+                }
+
+                if (value4 == null || value4.equals("\\N")) {
+                    stmt.setNull(4, Types.INTEGER);
+                } else {
+                    stmt.setString(4, value4);
+                }
+
+                //todo make it so more primaryProfession and knownForTitles
+            for (int i = 0; i <value5.length ; i++) {
+                stmt.setString(5,value1);
+                stmt.setString(6,value5[i]);
+            }
+            for (int i = 0; i <value6.length ; i++) {
+                stmt.setString(7,value1);
+                stmt.setString(8,value6[i]);
+            }
+
+
+            stmt.executeUpdate();
 
             stmt.close();
 

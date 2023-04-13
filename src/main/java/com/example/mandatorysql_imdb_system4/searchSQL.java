@@ -62,7 +62,7 @@ public class searchSQL {
             e.printStackTrace();
         }
         //todo RETURN ARRAY
-        return "nul";
+        return titleSearch;
     }
 
 
