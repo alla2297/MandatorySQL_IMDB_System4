@@ -2,15 +2,16 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mandatorysql_imdb_system4.HelloController">
+<VBox alignment="CENTER" prefHeight="280.0" prefWidth="256.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mandatorysql_imdb_system4.StartPageController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
-   <Button fx:id="Switch_scenes" layoutX="30.0" layoutY="68.0" onAction="#Switch_scenesSQL" text="se SQL" />
+   <Button fx:id="Switch_scenes" layoutX="30.0" layoutY="68.0" onAction="#Switch_scenes" text="se SQL" />
+   <Button fx:id="SearchMovie" layoutX="112.0" layoutY="179.0" onMouseClicked="#Switch_SearchMovie" text="seachMovie" />
+   <Button fx:id="SearchName" layoutX="112.0" layoutY="202.0" onMouseClicked="#Switch_SearchName" text="SearchName" />
+   <Button fx:id="insertTitle" layoutX="104.0" layoutY="224.0" onMouseClicked="#Switch_insertTitle" text="insertTitle" />
+   <Button fx:id="insertName" layoutX="104.0" layoutY="250.0" onMouseClicked="#Switch_insertName" text="insertName" />
+   <Button fx:id="deleteMovie" layoutX="100.0" layoutY="296.0" onMouseClicked="#Switch_deleteMovie" text="deleteMovie" />
 </VBox>

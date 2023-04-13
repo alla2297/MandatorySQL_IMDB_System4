@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mandatorysql_imdb_system4.InsertInputTitlesController">
+   <children>
+      <TableView fx:id="Table" layoutX="-1.0" layoutY="3.0" prefHeight="127.0" prefWidth="815.0">
+        <columns>
+            <TableColumn fx:id="titleType" prefWidth="76.79998779296875" text="titleType" />
+            <TableColumn fx:id="primaryTitle" prefWidth="123.20001220703125" text="PrimaryTitle" />
+            <TableColumn fx:id="originalTitle" prefWidth="98.4000244140625" text="OriginalTitle" />
+            <TableColumn fx:id="isAdult" prefWidth="53.5999755859375" text="isAdult" />
+            <TableColumn fx:id="startYear" prefWidth="64.0" text="StartYear" />
+            <TableColumn fx:id="endYear" prefWidth="67.199951171875" text="EndYear" />
+            <TableColumn fx:id="runtimeMinutes" prefWidth="102.40008544921875" text="RuntimeMinutes" />
+            <TableColumn fx:id="genres" prefWidth="138.4000244140625" text="genres" />
+        </columns>
+      </TableView>
+      <Button fx:id="Back" layoutX="760.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back" />
+      <TextField fx:id="tconst" layoutX="96.0" layoutY="166.0" prefHeight="26.0" prefWidth="92.0" promptText="tconst" />
+      <TextField fx:id="PrimaryTitle" layoutX="96.0" layoutY="245.0" prefHeight="26.0" prefWidth="92.0" promptText="PrimaryTitle" />
+      <TextField fx:id="OriginalTitle" layoutX="96.0" layoutY="285.0" prefHeight="26.0" prefWidth="92.0" promptText="OriginalTitle" />
+      <TextField fx:id="StartYear" layoutX="262.0" layoutY="166.0" promptText="StartYear" />
+      <TextField fx:id="EndYear" layoutX="262.0" layoutY="205.0" promptText="EndYear" />
+      <CheckComboBox fx:id="Genres" layoutX="304.0" layoutY="332.0" prefHeight="26.0" prefWidth="113.0" showCheckedCount="true" title="Genres" />
+      <ComboBox fx:id="titleTypedropdown" layoutX="37.0" layoutY="205.0" prefWidth="150.0" promptText="titleType" />
+      <ComboBox fx:id="isAdultDropdown" layoutX="95.0" layoutY="332.0" prefHeight="26.0" prefWidth="92.0" promptText="isAdult" />
+      <TextField fx:id="RuntimeMinutes" layoutX="262.0" layoutY="258.0" promptText="RuntimeMinutes" />
+      <Button fx:id="Insert_Movie" layoutX="489.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#Insert_Movie" text="Insert Movie" />
+   </children>
+</AnchorPane>

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class PreparedInsert {
 
 
-    //TODO hente alle titletype SQL. SELECT *
-// loade resultat ind i java liste
-    static void PreparedInsertTitles(ArrayList<Title_basics> Data) {
+
+
+    static void PreparedInsertTitles(ArrayList<Title_basics> Data) {// ARRAY
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -25,8 +25,8 @@ public class PreparedInsert {
             for (int j = 0; j < Data.size(); j++) {
 
                 String value1 = Data.get(j).getTconst();
-                //TODO find data.get(j) i java liste
-                //
+
+
                 int value8 = Integer.parseInt(searchTitleType(Data.get(j).getTitleType(), conn));
 
 
@@ -91,7 +91,8 @@ public class PreparedInsert {
         }
 
     }
-    private static String searchGenre(String a, Connection conn) {
+
+    private static String searchGenre(String a, Connection conn) {// ARRAY
         String x = null;
         String SearchGenre = "SELECT [genreID] FROM [MandatoryAssDB].[dbo].[Genre] WHERE [genreType] = ?";
         System.out.println("searchGenre string = "+a);
@@ -115,7 +116,7 @@ public class PreparedInsert {
         return x;
     }
 
-    private static String searchTitleType(String a, Connection conn) {
+    private static String searchTitleType(String a, Connection conn) {// ARRAY
         //System.out.println("searchTitleType for " + a);
         String x = null;
         String SearchTitleType = "SELECT [titleID] FROM [MandatoryAssDB].[dbo].[TitleTypes] WHERE [titleType] = ?";
@@ -227,7 +228,7 @@ public class PreparedInsert {
         }
     }
 
-    static void PreparedInsertCrewWriters(ArrayList<title_crew> Data) {
+    static void PreparedInsertCrewWriters(ArrayList<title_crew> Data) {  //Insert crew writers
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -253,7 +254,7 @@ public class PreparedInsert {
         }
     }
 
-    static void PreparedInsertCrewDirectors(ArrayList<title_crew> Data) {
+    static void PreparedInsertCrewDirectors(ArrayList<title_crew> Data) { //Insert crew directors
         Connection conn;
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;Database=MandatoryAssDB;user=IMDB;password=1234;encrypt=true;trustServerCertificate=true");
@@ -280,3 +281,15 @@ public class PreparedInsert {
     }
 
 }
+
+
+
+
+
+/*
+  String insertSQL = "BEGIN TRANSACTION; " +
+                   "INSERT INTO [dbo].[Name]([nconst],[primaryName],[birthYear],[deathYear]) VALUES (?, ?, ?, ?); " +
+                   "INSERT INTO [MandatoryAssDB].[dbo].[NamePrimaryProfession] ([FK_nconst],[primaryProfession]) VALUES (?, ?); " +
+                   "INSERT INTO [MandatoryAssDB].[dbo].[NameKnownForTitles] ([FK_nconst],[knownForTitles]) VALUES (?, ?); " +
+                   "COMMIT TRANSACTION;";
+ */

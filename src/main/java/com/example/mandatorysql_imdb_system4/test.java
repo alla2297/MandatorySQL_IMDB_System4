@@ -7,6 +7,11 @@ import com.example.mandatorysql_imdb_system4.Object.title_crew;
 import java.io.File;
 import java.util.ArrayList;
 
+import static com.example.mandatorysql_imdb_system4.DeleteSQL.PreparedDeleteTitle;
+import static com.example.mandatorysql_imdb_system4.PreparedInsert.PreparedInsertInputName;
+import static com.example.mandatorysql_imdb_system4.PreparedInsert.PreparedInsertInputTitles;
+import static com.example.mandatorysql_imdb_system4.searchSQL.searchName;
+
 public class test  {
 
     public static void main(String[] args) {
@@ -47,17 +52,40 @@ public class test  {
         //SQL.SQLConnectionTest();
 
         //PreparedInsert.PreparedInsertTitles(DataTitle);
+
+        // 81 Seconds{
         //PreparedInsert.PreparedInsertName(DataName);
         //PreparedInsert.PreparedInsertNamePrimaryProfession(DataName);
         //PreparedInsert.PreparedInsertNameKnownForTitles(DataName);
+        //}
+        // 52 Seconds{
         //PreparedInsert.PreparedInsertCrewDirectors(DataCrew);
         //PreparedInsert.PreparedInsertCrewWriters(DataCrew);
-
-        searchSQL.searchTitle("Carmen");
+        //}
+        //---------searchTitle-----------------------------
+        //searchSQL.searchTitle("Carmen");
+        ArrayList<Title_basics> titleSearch = new ArrayList<>();
+        titleSearch= searchSQL.searchTitle("Carmen");
+        //---------searchName-----------------------------
+        ArrayList<name_basics> nameSearch = new ArrayList<>();
+        nameSearch= searchName("Máximo Astray");
         long EndSQL = System.currentTimeMillis();
 
+
+        // -----------------------insert one Title----------------------
+        //Title_basics test = new Title_basics("1","tvEpisode", "Simon", "Simon", true, "1995", "\\N", "60", "Documentary,Comedy");
+        //PreparedInsertInputTitles(test);
+        // -----------------------insert one Name--------------------------------------
+        /*String[] test3 = {"Programer","WebProgramer"};
+        String[] test4 = {"tt0000002","tt0000112","1"};
+        name_basics test2 = new name_basics("2", "Monkey",
+                "2023","\\N",test3,test4);
+        PreparedInsertInputName(test2);
+*/
+        //-----------------------------------Delete-----------------------------------
+    /*    PreparedDeleteTitle("1");
         System.out.println((EndSQL-StartSQL) + " Miliseconds");
         System.out.println((EndSQL-StartSQL)/1000 + " Seconds");
-
+        */
     }
 }
