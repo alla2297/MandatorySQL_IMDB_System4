@@ -4,6 +4,7 @@ module com.example.mandatorysql_imdb_system4 {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires org.controlsfx.controls;
 
     opens com.example.mandatorysql_imdb_system4 to javafx.fxml;
     exports com.example.mandatorysql_imdb_system4;

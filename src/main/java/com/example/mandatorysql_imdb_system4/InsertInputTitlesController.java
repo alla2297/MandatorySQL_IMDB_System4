@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -84,13 +85,14 @@ public class InsertInputTitlesController implements Initializable {
     private ComboBox<String> titleTypedropdown;
 
 
-    //@FXML
-    //private CheckComboBox<String> Genres;
+    @FXML
+    private CheckComboBox<String> Genres;
 
     @FXML
     void Insert_Movie(MouseEvent event) {
         isAdultDropdown.getItems();
         titleTypedropdown.getItems();
+        Genres.getItems();
 
 
 
@@ -109,6 +111,7 @@ public class InsertInputTitlesController implements Initializable {
 
 
     ObservableList<Title_basics> list = FXCollections.observableArrayList();
+    ObservableList<String> genrelist = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         isAdultDropdown.setItems(FXCollections.observableArrayList(true,false));
@@ -122,7 +125,41 @@ public class InsertInputTitlesController implements Initializable {
                         "tvShort",
                         "tvSpecial",
                         "video",
-                        "videoGame"));
+                        "videoGame")
+        );
+
+        genrelist.addAll("genreName",
+                "Documentary",
+                "Short",
+                "Animation",
+                "Comedy",
+                "Romance",
+                "Sport",
+                "News",
+                "Drama",
+                "Fantasy",
+                "Horror",
+                "Biography",
+                "Music",
+                "War",
+                "Crime",
+                "Western",
+                "Family",
+                "Adventure",
+                "Action",
+                "History",
+                "Mystery",
+                "NULL",
+                "Sci-Fi",
+                "Musical",
+                "Thriller",
+                "Film-Noir",
+                "Talk-Show",
+                "Game-Show",
+                "Reality-TV",
+                "Adult",
+                "Experimental");
+        Genres.getItems().addAll(genrelist);
 
 
         Data = SQL.SQLConnectionTest2();

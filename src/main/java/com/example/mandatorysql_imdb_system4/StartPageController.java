@@ -68,11 +68,7 @@ public class StartPageController {
 
     @FXML
     void Switch_deleteMovie(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("InsertInputTitles.fxml"));
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
 
     }
 
@@ -83,6 +79,10 @@ public class StartPageController {
 
     @FXML
     void Switch_insertTitle(MouseEvent event) throws IOException{
-
+        root = FXMLLoader.load(getClass().getResource("InsertInputTitles.fxml"));
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
