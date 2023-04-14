@@ -111,7 +111,7 @@ public class PreparedInsert {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        System.out.println("searchGenre done returner = " + x);
         return x;
     }
 
@@ -331,7 +331,7 @@ public class PreparedInsert {
 //__________________      TitleGenre ---------------------------------------------------------------
             insertSQL ="INSERT INTO [dbo].[TitleGenre]([FK_titleID],[FK_genreID])VALUES(?,?)";
             PreparedStatement stmtTitleGenre = conn.prepareStatement(insertSQL);
-
+            System.out.println("before insert genres"+Data.getGenres());
                 String[] genre = Data.getGenres().split(",");
 
 

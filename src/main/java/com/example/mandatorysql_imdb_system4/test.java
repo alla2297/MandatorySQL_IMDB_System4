@@ -64,17 +64,17 @@ public class test  {
         //}
         //---------searchTitle-----------------------------
         //searchSQL.searchTitle("Carmen");
-        ArrayList<Title_basics> titleSearch = new ArrayList<>();
-        titleSearch= searchSQL.searchTitle("Carmen");
-        //---------searchName-----------------------------
-        ArrayList<name_basics> nameSearch = new ArrayList<>();
-        nameSearch= searchName("Máximo Astray");
-        long EndSQL = System.currentTimeMillis();
+//        ArrayList<Title_basics> titleSearch = new ArrayList<>();
+//        titleSearch= searchSQL.searchTitle("Carmen");
+//        //---------searchName-----------------------------
+//        ArrayList<name_basics> nameSearch = new ArrayList<>();
+//        nameSearch= searchName("Máximo Astray");
+//        long EndSQL = System.currentTimeMillis();
 
 
         // -----------------------insert one Title----------------------
-        //Title_basics test = new Title_basics("1","tvEpisode", "Simon", "Simon", true, "1995", "\\N", "60", "Documentary,Comedy");
-        //PreparedInsertInputTitles(test);
+//        Title_basics test = new Title_basics("2","tvEpisode", "Simon", "Simon", true, "1995", "\\N", "60", "Documentary,Comedy");
+//        PreparedInsertInputTitles(test);
         // -----------------------insert one Name--------------------------------------
         /*String[] test3 = {"Programer","WebProgramer"};
         String[] test4 = {"tt0000002","tt0000112","1"};

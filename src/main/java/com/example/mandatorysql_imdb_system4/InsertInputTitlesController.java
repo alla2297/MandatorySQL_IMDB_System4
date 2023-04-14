@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.example.mandatorysql_imdb_system4.PreparedInsert.PreparedInsertInputTitles;
+
 public class InsertInputTitlesController implements Initializable {
 
     ArrayList<Title_basics> Data = new ArrayList<>();
@@ -90,10 +92,26 @@ public class InsertInputTitlesController implements Initializable {
 
     @FXML
     void Insert_Movie(MouseEvent event) {
-        isAdultDropdown.getItems();
-        titleTypedropdown.getItems();
-        Genres.getItems();
+       String tc = tconst.getText();
+        String tt = String.valueOf(titleTypedropdown.getValue());
 
+
+        String pt =PrimaryTitle.getText();
+        String ot =OriginalTitle.getText();
+        ObservableList<Boolean> iAT =isAdultDropdown.getItems();
+        String syt =StartYear.getText();
+        String eyT =EndYear.getText();
+        String rtmT =RuntimeMinutes.getText();
+        String gT = String.valueOf(Genres.getCheckModel().getCheckedItems());
+        String genre =gT.replace("[", "").replace(", ", ",").replace("]", "");
+        System.out.println(gT);
+        boolean d  =Boolean.parseBoolean(String.valueOf(iAT));
+        Title_basics newTitle = new Title_basics(
+                tc,tt,pt,ot,d,syt,eyT,rtmT,genre);
+        System.out.println("Title_basics = "+newTitle.getTconst()+", "+newTitle.getTitleType()+", "+newTitle.getPrimaryTitle()+", "+newTitle.getOriginalTitle()+", "+
+                newTitle.getIsAdult()+", "+newTitle.getStartYear()+", "+newTitle.getEndYear()+", "+newTitle.getRuntimeMinutes()+", "+newTitle.getGenres()
+        );
+        PreparedInsertInputTitles(newTitle);
 
 
 
