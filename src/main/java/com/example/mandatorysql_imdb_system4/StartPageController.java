@@ -68,13 +68,21 @@ public class StartPageController {
 
     @FXML
     void Switch_deleteMovie(MouseEvent event) throws IOException {
-
+        root = FXMLLoader.load(getClass().getResource("DeleteMovie.fxml"));
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     @FXML
     void Switch_insertName(MouseEvent event) throws IOException {
-
+        root = FXMLLoader.load(getClass().getResource("InsertIName.fxml"));
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

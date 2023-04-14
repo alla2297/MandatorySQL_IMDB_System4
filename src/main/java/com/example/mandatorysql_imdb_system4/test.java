@@ -76,12 +76,12 @@ public class test  {
 //        Title_basics test = new Title_basics("2","tvEpisode", "Simon", "Simon", true, "1995", "\\N", "60", "Documentary,Comedy");
 //        PreparedInsertInputTitles(test);
         // -----------------------insert one Name--------------------------------------
-        /*String[] test3 = {"Programer","WebProgramer"};
+        String[] test3 = {"Programer","WebProgramer"};
         String[] test4 = {"tt0000002","tt0000112","1"};
         name_basics test2 = new name_basics("2", "Monkey",
                 "2023","\\N",test3,test4);
         PreparedInsertInputName(test2);
-*/
+
         //-----------------------------------Delete-----------------------------------
     /*    PreparedDeleteTitle("1");
         System.out.println((EndSQL-StartSQL) + " Miliseconds");

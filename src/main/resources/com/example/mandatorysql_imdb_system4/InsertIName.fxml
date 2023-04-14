@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mandatorysql_imdb_system4.InsertNameController">
+   <children>
+      <TableView fx:id="Table" layoutX="-1.0" layoutY="3.0" prefHeight="127.0" prefWidth="815.0">
+        <columns>
+            <TableColumn fx:id="titleType" prefWidth="168.79999083280563" text="primaryName" />
+            <TableColumn fx:id="primaryTitle" prefWidth="104.79997253417969" text="birthYear" />
+            <TableColumn fx:id="originalTitle" prefWidth="98.4000244140625" text="deathYear" />
+            <TableColumn fx:id="isAdult" prefWidth="198.39996337890625" text="primaryProfession" />
+            <TableColumn fx:id="startYear" prefWidth="237.5999755859375" text="knownForTitles" />
+        </columns>
+      </TableView>
+      <Button fx:id="Back" layoutX="760.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back" />
+      <TextField fx:id="nconst" layoutX="96.0" layoutY="166.0" prefHeight="26.0" prefWidth="92.0" promptText="nconst" />
+      <TextField fx:id="primaryName" layoutX="96.0" layoutY="204.0" prefHeight="26.0" prefWidth="92.0" promptText="primaryName" />
+      <TextField fx:id="birthYear" layoutX="96.0" layoutY="245.0" prefHeight="26.0" prefWidth="92.0" promptText="birthYear" />
+      <TextField fx:id="deathYear" layoutX="96.0" layoutY="284.0" prefHeight="26.0" prefWidth="92.0" promptText="deathYear" />
+      <TextField fx:id="primaryProfession" layoutX="96.0" layoutY="319.0" prefHeight="26.0" prefWidth="92.0" promptText="primaryProfession" />
+      <TextField fx:id="knownForTitles" layoutX="96.0" layoutY="358.0" prefHeight="26.0" prefWidth="92.0" promptText="knownForTitles" />
+      <Button fx:id="Insert_Movie" layoutX="489.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#Insert_Movie" text="Insert Movie" />
+   </children>
+</AnchorPane>
